@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ? Bootstrap'i lokalden çalıştırmak için Boostrap indirerek dosyaları proje dosyamıza (Örneğin assets/lib klasörüne) ekleyebiliriz. Sonrasında ise aşağıdaki gibi bootstrap.min.css dosyasına link verebiliriz. -->
+    <!--? Ayrıca sayfanın en sonuna doğru Bootstrap JS kodlarını da kullanamk istersek <script> etiketi ile ana js kodunu eklememiz gerekir. -->
+    <link
+      rel="stylesheet"
+      href="assets/lib/bootstrap-5.0.1-dist/css/bootstrap.css"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- ? Boostrap'de nesnelerimizi taşıyacak ana container'ların dışında row (satır) ve col (sutun) adında container yapısı da mevcuttur. -->
+    <!-- ? Boostrap bir web sayfasını 12 eşit ızgaraya (col) bölünmüştür ve bu sutunlar aksi belirtilmediği sürece eşit şekilde sayfaya yayılırlar. -->
+
+    <div class="container">
+      <h3 class="display-1 text-center text-primary">BOODSTRAP GRID</h3>
+      <div class="row">
+        <div class="col bg-danger">Sutun-1</div>
+        <div class="col bg-secondary">Sutun-2</div>
+        <div class="col bg-success">Sutun-3</div>
+      </div>
+      <div class="row">
+        <div class="col bg-warning">Sutun-1</div>
+        <div class="col bg-primary">Sutun-2</div>
+      </div>
+    </div>
+    <!-- ? Sutunların kaplayacağı alanı belirtmek için col-x şeklinde bir atama yapılabilir. -->
+    <!-- ? ızgaraların mevcut alanda nasıl hizalanacağını belirlemek için justify-content sınıfı kullanılır. -->
+    <!-- ** Bu konuda ek açıklama için 
+     ! https://getbootstrap.com/docs/5.0/utilities/flex/#justify-content -->
+
+    <div class="cointainer-fluid">
+      <div class="row justify-content-center">
+        <div class="col-6 bg-success">6</div>
+        <div class="col-4 bg-warning">4</div>
+      </div>
+      <div class="row">
+        <div class="col-4 bg-danger">4</div>
+        <div class="col-4 bg-secondary">4</div>
+        <div class="col-4 bg-success">4</div>
+      </div>
+    </div>
+
+    <script src="assets/lib/bootstrap-5.0.1-dist/bootsrap.bundle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+////=================================================================
+////            findOneAndUpdate - findOneAndReplace
+////=================================================================
+
+// A - findOneAndReplace() 
+//----------------------------
+//   1-) belirtilen koşullara uyan ilk sorguyu bulur ve degistirir. 
+//   2-) Komut icerisinde belirtilen kismilari guncellerken bos birakilan 
+//       alanlari kaldirir. (API'lerdeki PUT metoduna benzetilebilir).
+//   3-) Islem sonunda VSCODE ilgili dokumanin guncellenmemiş halini gosterir.
+//   4-) SYNTAX
+//        db.collection.findOneAndReplace( filter, replacement, options )   
+//       
+// B - findOneAndUpdate() 
+//----------------------------
+///  1-) Belirtilen koşullara uyan ilk sorguyu bulur ve degistirir. 
+//   2-) Komut icerisinde belirtilen kismilari guncellerken bos birakilan 
+//       alanlari modifiye etmez  (API'lerdeki PACTH metoduna benzetilebilir).
+//   3-) komutun kosul kismindan sonra degislikileri gerceklestirmek icin bir 
+//       atomic operator kullanilir. ($set, $inc, $mul vb.)
+//   4)  Islem sonunda VSCODE ilgili dokumanin guncellenmemiş halini gosterir.
+//   5-) SYNTAX
+//       db.collection.findOneAndUpdate( filter, update, options )¶
+////=================================================================
+
+////-----------------------------------------------------------------
+//// 1) "kisiler" adinda bir veritabani ve icerisinde "personel" 
+//// adinda bir collection tanimlayalim.  
+////-----------------------------------------------------------------
+use("kisiler");
+// db.createCollection("personel");
+
+////-----------------------------------------------------------------
+//// 2) asagidaki dokumanlari collection'a kaydedelim.   
+////-----------------------------------------------------------------
+
+// db.personel.insertMany([
+//  {"isim":"Ali Bak", "maas": 5000, "iseBaslama": new Date('2014-03-01')},
+//  {"isim":"Can Tak", "maas": 7500, "iseBaslama": new Date('2011-03-04')},
+//  {"isim":"Veli Gel", "maas": 3550, "iseBaslama": new Date('2013-03-01')},
+//  {"isim":"Can Yak", "maas": 4800, "iseBaslama": new Date('2011-09-30')},
+//  {"isim":"Veli Git", "maas": 7200, "iseBaslama": new Date('2007-12-06')},
+//  {"isim":"Ali Han", "maas": 5250, "iseBaslama": new Date('2004-11-21')},
+//  {"isim":"Ayse Gel", "maas": 10500, "iseBaslama": new Date('1990-07-23')},
+//  {"isim":"Su Ak", "maas": 3300, "iseBaslama": new Date('1999-03-30')},
+//   ]);
+
+////-----------------------------------------------------------------
+//// 3) Maasi 4000 'den az olan ilk personelin maasini 4000 TL yapiniz.
+////-----------------------------------------------------------------
+// db.personel.findOneAndReplace({"maas": {$lte:5000}}, {"maas":6000} );
+
+////-----------------------------------------------------------------
+//// 4) Maasi 5250 olan personelin maasini 5555, ismini "Ceylan" ve 
+////   ise baslama tarihini su an yapalim.
+////-----------------------------------------------------------------
+// db.personel.findOneAndReplace({"maas": 5250}, {"maas":5555, "isim":"Ceylan", "iseBaslama": new Date()} );
+
+
+    ///***************  3. GUN  *********************** */
+
+////*-----------------------------------------------------------------
+//// 5) Maasi en az olan personelin adini, noname, ise baslama tarihini
+////    nodate, maasini ise 0 yapiniz.
+////-----------------------------------------------------------------*/
+
+db.personel.findOneAndReplace({},{"isim":"Noname", "iseBaslama":"nodate" "maas":0}, {sort:{"maas":1}});
+
+////-----------------------------------------------------------------
+//// 6) Maasi 7250 olan personelin maasini 8000 yapiniz, diger kismilari
+////    degistirmeyiniz.
+////-----------------------------------------------------------------
+db.personel.findOneAndUpdate({"maas":7200},{$set:{"maas":8000}});
+
+////-----------------------------------------------------------------
+//// 7) Maasi 7500 olan personelin maasini %10 zam yapiniz,
+////     diger kismilari degistirmeyiniz.
+////-----------------------------------------------------------------
+db.personel.findOneAndUpdate({"maas":7500},{$mul:{"maas":1.1}});
+
+////-----------------------------------------------------------------
+//// 8) Maasi 4800 olan personelin maasini 500 TL zam yapiniz,
+////     diger kismilari degistirmeyiniz.
+////-----------------------------------------------------------------
+db.personel.findOneAndUpdate({maas:4800},{$inc:{maas:500}})
+
+////-----------------------------------------------------------------
+//// 9) Maasi 15000 olan personelin Adini "Mehmet Can" ve ise baslama 
+////    tarihini su an olarak degisitriniz.diger kismilari degistirmeyiniz.
+//// Eğer böyle bir kayıt yoksa, yeni kayıt olarak ekle. 
+////--------------------------------------------------------
+db.personel.findOneAndUpdate({maas:15000},
+{$set: {isim:"Mehmet Can", iseBaslama:new Date()}},{upsert:true});
+
+// NOT: Eger günceleme (replace veya update ) işleminde sorgu ile eslesmme dumum
+//      olduğunda dokumanın oluşturulması istenilirse {upstert:true} kullanılmalıdır. 
+
+////=================================================================
+////           updateOne - updateMany - update (depreceated)
+////
+////  update komutlari ile de bir dokumandaki bigilerin bir kismi yada
+////  tamami guncellenebilir. update komutlari findOneAndUpdate komutuna
+////  gore daha hizli calisir. Bunun sebebi bu komutlarin sorguyu cevap
+////  olarak dondurmemesidir. Bu komutlar sadece istatistik olarak kisa 
+////  bilgiler dondurur.
+////=================================================================
+
+////-----------------------------------------------------------------
+//// 9)ismi can tak olan personelin maaşı 15000 olarak günceleyin. 
+////-----------------------------------------------------------------
+db.personel.updateOne({isim:"Can Tak"},{$set:{maas:15000}});
+
+////-----------------------------------------------------------------
+//// 11) maasi 15000 olan personellerin dokumanina prim:1000 bilgisini ekleyiniz.
+////-----------------------------------------------------------------
+db.personel.updateMany({maas: 15000}, {$set: {prim: 1000}});
+
+
+////-----------------------------------------------------------------
+//// 12) maasi 5000 olan personellerin dokumanina prim:200 bilgisini
+///     eger boyle bir personel yok ise yeni bir kayit aciniz.
+////-----------------------------------------------------------------
+db.personel.updateMany({maas: 5000}, {$set: {prim: 200}}, {upsert:true});
+
+
+////-----------------------------------------------------------------
+//// 13) maasi 7000 az olan personellerin dokumanina prim:500 bilgisini ekleyiniz.
+////-----------------------------------------------------------------
+db.personel.update({"maas":{$lt:7000}},{$set:{"prim":500}}, {multi:true});
+
+
+
+
+
+////=================================================================
+////           deleteOne - deleteMany - remove (depreceated)
+////
+////=================================================================
+////-----------------------------------------------------------------
+//// 12) ismi Mehmet Can olan kaydi siliniz. 
+////-----------------------------------------------------------------
+db.personel.deleteOne({isim:"Mehmet Can"});
+
+////-----------------------------------------------------------------
+//// 13) maasi 15000 olan dokumanlari siliniz.
+//-----------------------------------------------------------------
+
+db.personel.deleteMany({maas:15000});

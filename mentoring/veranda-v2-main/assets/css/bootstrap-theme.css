@@ -1,0 +1,54 @@
+/* NAVBAR */
+.navbar {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.navbar .nav-item {
+  margin-right: 1rem;
+}
+/*
+.navbar-light.navbar-nav.nav-link{
+  color: ;
+}
+*/
+/* NAVBAR */
+
+.btn {
+  border-radius: 0;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  z-index: -1;
+  transform: translateY(-100%);
+  transition: transform 0.5s;
+}
+
+.btn:hover::before {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  border: 0;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+}

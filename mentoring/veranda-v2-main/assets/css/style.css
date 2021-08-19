@@ -1,0 +1,210 @@
+/* COMMON */
+
+:root {
+  --color-primary: #905729;
+  --color-primary-hover: #693e1a;
+  --color-primary-transparent: #9057296c;
+}
+
+body {
+  font-family: "Montserrat";
+  position: relative;
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.page-section {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.page-section .section-title {
+  font-size: 2rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.page-section .section-title::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  background-color: var(--color-primary);
+  margin: 2rem auto;
+}
+
+.page-section .nav {
+  justify-content: center;
+}
+
+.page-section .nav-pills .nav-link {
+  text-transform: uppercase;
+  font-family: Oswald;
+  font-weight: 500;
+  color: rgb(78, 78, 78);
+}
+
+.page-section .nav-pills .nav-link.active {
+  color: black;
+  background: none;
+  border-bottom: 2px solid black;
+  border-radius: 0;
+}
+
+.page-section > div > .tab-content {
+  border: 1px solid rgb(194, 194, 194);
+  padding: 2rem;
+}
+/* COMMON */
+
+/* SLIDER */
+.slider .carousel-item {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.slider .carousel-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.548);
+}
+
+.slider .slider-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.slider .slider-caption h4 {
+  font-size: 1.3rem;
+  letter-spacing: 0.7rem;
+  color: white;
+  text-shadow: 0 0 0.5rem black;
+}
+
+.slider .slider-caption h2 {
+  font-size: 4rem;
+  letter-spacing: 0.5rem;
+  color: white;
+  text-shadow: 0 0 0.5rem black;
+}
+/* SLIDER */
+
+/* SECTION PROJECT */
+section.project {
+  margin: 2rem;
+}
+
+section.project .project-link {
+  display: block;
+  position: relative;
+  text-align: center;
+  color: var(--color-primary);
+  overflow: hidden;
+}
+
+section.project .project-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.541);
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+section.project .project-link:hover::after {
+  opacity: 1;
+}
+
+section.project img {
+  transition: transform 0.5s;
+}
+
+section.project .project-link:hover img {
+  transform: scale(1.2);
+}
+
+section.project .title {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+section.project .title h6::after {
+  content: "";
+  display: block;
+  background-color: var(--color-primary);
+  height: 3px;
+  width: 50%;
+  margin: 0.5rem auto;
+}
+
+section.project .project-link .btn {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  color: white;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+section.project .project-link:hover .btn {
+  opacity: 1;
+}
+/* SECTION PROJECT */
+
+/* SECTION PROJECT_DETAILS */
+section.project-details .texts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6rem;
+}
+
+section.project-details .texts h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+section.project-details .texts h3 {
+  font-size: 2.5rem;
+  font-weight: 200;
+}
+
+section.project-details .texts p {
+  color: rgb(78, 78, 78);
+}
+/* SECTION PROJECT_DETAILS */
+
+/* SECTION VILLA PLAN */
+
+/* SECTION VILLA PLAN */

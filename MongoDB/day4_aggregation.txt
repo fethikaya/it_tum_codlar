@@ -1,0 +1,10 @@
+[
+  {
+    "_id": "B",
+    "IngAlanlarinSayisi": 2
+  },
+  {
+    "_id": "A",
+    "IngAlanlarinSayisi": 1
+  }
+]

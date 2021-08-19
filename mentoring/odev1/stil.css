@@ -1,0 +1,245 @@
+body {
+  padding: 10%;
+  background-color: rgb(255, 236, 207);
+}
+.box-main {
+  display: flex;
+  background-color: darkkhaki;
+  flex-direction: row; /* Yan yana yazdı*/
+  justify-content: space-around; /* Aradaki boşluğu eşitledi*/
+  align-items: flex-start; /*Sola yasla*/
+  padding: 25px 10px; /* Yükseliği ayarladı*/
+  /* Genelde padding tercih ederiz ki, telf, tablet her yere uyumlu olsun. */
+  padding: 25px 10px;
+  border-radius: 10px;
+
+  box-shadow: 10px 12px 3px -8px rgb(82, 79, 55);
+}
+.box-main > div {
+  display: flex;
+  align-items: center;
+}
+.box-main i {
+  font-size: 2.5rem; /* rem kullanırsak tlf ve tablette de bozulmaz*/
+  color: blueviolet;
+}
+.box-main span {
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+/* ================================== */
+.box-2 {
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 1rem;
+  display: inline block;
+  padding: 2rem;
+  box-shadow: 10px 12px 3px -8px cornflowerblue;
+}
+.box-2 h3 {
+  margin-top: 0;
+}
+
+.box-2 button {
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid coral;
+  margin-left: 1rem;
+}
+
+.box-2 button:last-child {
+  margin-right: 0;
+}
+
+.box-2 button.aktive {
+  /* button ile aktive arasında boşluk olmayacak */
+  background-color: red;
+  box-shadow: 10px 12px 3px -8px cornflowerblue;
+}
+
+/* =========================================== */
+
+.box-3 {
+  background-color: #f55951;
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 4rem;
+  box-shadow: 12px 12px 3px -8px #f02a20;
+}
+.box-3 label {
+  display: inline-box;
+  color: white;
+  font-weight: bold;
+  font-size: 36px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.box-3 #search {
+  position: relative;
+  width: 100%;
+  padding: 8px 5px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+}
+.box-3 .arama-bar i {
+  display: flex;
+  position: absolute;
+  margin-left: 10px;
+  color: rgba(0, 0, 0, 0.4);
+  padding-top: 5px;
+  font-size: 25px;
+  z-index: 1;
+}
+.arama-bar {
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+}
+input[type="text"]::placeholder {
+  font-weight: bold;
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.2);
+  padding-left: 40px;
+}
+
+/* ================================== */
+
+.box-4 {
+  background-color: rgb(171, 184, 206);
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Yukarıya yapıştırıyor*/
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 10px 12px 3px -8px rgb(40, 65, 109);
+}
+.box-4 img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+.box-4 h4 {
+  color: rgb(89, 90, 69);
+  letter-spacing: 0.5px; /*Harflerin arasını açma*/
+}
+
+.box-4 h2 {
+  margin-top: -10px;
+  color: rgb(240, 17, 28);
+  letter-spacing: 0.5px; /*Harflerin arasını açma*/
+}
+.box-4 .mail {
+  padding: 1% 14%;
+  border: 1px solid 0;
+  margin-bottom: 3px;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  box-shadow: 3px 1px 10px -8px rgb(18, 18, 19);
+}
+
+input[type="email"]::placeholder {
+}
+.box-4 button {
+  padding: 1% 14%;
+  background-color: brown;
+  border: none;
+  border-radius: 3px;
+}
+
+/* ========================== */
+.box-5 {
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 1rem;
+
+  padding: 2rem;
+  box-shadow: 10px 12px 3px -8px cornflowerblue;
+}
+
+.box-5 .row {
+  display: flex;
+}
+.box-5 img {
+  width: 50%;
+  height: 350px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+.box-5 .row span i {
+  display: grid;
+  grid-column-end: five;
+  border: 2px solid grey;
+  border-radius: 50%;
+  padding: 10px;
+  float: right;
+  top: 0;
+  margin-top: -60px;
+}
+.fa-star {
+  color: red;
+}
+.clearfix {
+  clear: both;
+}
+.sag {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 10%;
+}
+
+.box-6 {
+  display: flex;
+  align-items: space-around;
+
+  flex-direction: row;
+  align-items: space-around;
+
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 1rem;
+
+  padding: 2rem;
+  box-shadow: 10px 12px 3px -8px cornflowerblue;
+}
+
+.box-6 img {
+  margin-right: 10px;
+  width: 45%;
+
+  border-radius: 50%;
+}
+
+.cep,
+.rast {
+  margin-right: 20px;
+  padding: 20px 10px;
+  line-height: 150px;
+  font-size: 30px;
+  color: blueviolet;
+}
+
+.box-6 .row {
+  display: flex;
+  justify-items: space-around;
+}
+.box-6 .row .img-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.box-6 .row p {
+  display: inline;
+}

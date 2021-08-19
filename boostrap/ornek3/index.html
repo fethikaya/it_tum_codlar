@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="assets/lib/bootstrap-5.0.1-dist/css/bootstrap.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- *Sutunların ekranda kaplayacağı alan responsive olarak belirlenebilir. Önceden tanımlanmış ekran boyutlarına (breakpoint) göre sutunların boyutları otomatik değişebilmektedir. Ayrıntılı bilgi için 
+          ? Extra small devices (portrait phones, less than 576px) 
+          ? No media query for `xs` since this is the default in Bootstrap
+          ? Small devices (landscape phones, 576px and up)
+          ! @media (min-width: 576px) { ... }
+          ? Medium devices (tablets, 768px and up)
+          ! @media (min-width: 768px) { ... }
+          ? Large devices (desktops, 992px and up)
+          ! @media (min-width: 992px) { ... }
+          ? Extra large devices (large desktops, 1200px and up)
+          ! @media (min-width: 1200px) { ... }
+       * Ayrıntılı bilgi için;
+       ! https://getbootstrap.com/docs/4.3/layout/grid/#all-breakpoints     -->
+    <div class="container">
+      <h1 class="h1 text-center bg-warning">RESPONSIVE</h1>
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 bg-primary">S1</div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 bg-success">S2</div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-2 bg-secondary">
+          S3
+        </div>
+      </div>
+    </div>
+    <!-- ======================================== -->
+    <script src="assets/lib/bootstrap-5.0.1-dist/js/bootstrap.bundle.js"></script>
+  </body>
+</html>

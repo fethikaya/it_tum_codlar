@@ -1,0 +1,19 @@
+.container {
+  width: 100vw; /* viewport with > görünen sayfanın %100*/
+  min-height: 100vh; /*viewportr height > Görünen sayfanın aşağıya doğru %100*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.btn {
+  padding: 20px;
+  background-color: bisque;
+  border-radius: 15px;
+}
+.btn:hover {
+  background-color: rgb(159, 122, 76);
+}
+h1 {
+  background-color: white;
+}
